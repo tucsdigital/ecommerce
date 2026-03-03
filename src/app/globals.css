@@ -1,0 +1,111 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: rgb(var(--background-end-rgb));
+}
+
+@layer base {
+  :root {
+    /* Identidad visual: principal #5A3A2A, secundario blanco, contraste #8B5E3C */
+    --background: 0 0% 100%;
+    --foreground: 0 0% 6%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 6%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 6%;
+    /* Principal: #5A3A2A (hex) -> HSL(20, 39%, 25.9%) */
+    --primary: 20 39% 25.9%;
+    /* Texto sobre primary: blanco */
+    --primary-foreground: 0 0% 100%;
+    /* Secundario: blanco */
+    --secondary: 0 0% 100%;
+    --secondary-foreground: 0 0% 6%;
+    --muted: 0 0% 100%;
+    --muted-foreground: 0 0% 46.1%;
+    /* Contraste / acento: #8B5E3C -> HSL(25.9, 39.7%, 39%) */
+    --accent: 25.9 39.7% 39%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 20% 98%;
+    --border: 0 0% 91%;
+    --input: 0 0% 91%;
+    --ring: 25.9 39.7% 39%;
+    --radius: 0.5rem;
+  }
+ 
+  .dark {
+    /* Dark mode keeps the brand hues but adapts foregrounds */
+    --background: 222.2 84% 4.9%;
+    --foreground: 0 0% 98%;
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 0 0% 98%;
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 20 39% 25.9%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 0 0% 100%;
+    --secondary-foreground: 0 0% 6%;
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 25.9 39.7% 39%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 25.9 39.7% 39%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+@layer utilities {
+  @keyframes shimmer {
+    0% {
+      transform: translateX(-100%);
+    }
+    100% {
+      transform: translateX(100%);
+    }
+  }
+  
+  .animate-shimmer {
+    animation: shimmer 2s infinite;
+  }
+} 
+
+/* Section background helpers based on brand primary (#5A3A2A -> rgb(90,58,42)) */
+@layer utilities {
+  .section-bg-1 {
+    background-color: rgba(90,58,42,0.06);
+    border-top: 1px solid rgba(90,58,42,0.04);
+  }
+  .section-bg-2 {
+    background-color: rgba(90,58,42,0.12);
+    border-top: 1px solid rgba(90,58,42,0.06);
+  }
+  .section-bleed {
+    background-color: rgba(90,58,42,0.04);
+    border-top: 1px solid rgba(90,58,42,0.02);
+  }
+  .section-pad {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+  }
+}
